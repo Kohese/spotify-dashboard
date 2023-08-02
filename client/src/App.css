@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.bg-dark {
+  background-color: #111 !important;
+}
+
+.text-secondary {
+  color: rgb(179, 179, 179) !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  div.mt-2.row.d-flex.flex-column.text-center {
+    width: 80px;
+  }
+
+  .btn-width {
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .ms-lg-5 {
+    margin: 0 0 0 100px !important;
+  }
+
+    .playlist-info {
+    position: fixed;
+  }
+
+  .navigate-back {
+    position: fixed;
+    left: 100px;
+  }
+
+  .artist-img {     
+    width: 190px !important;
+    height: 190px !important;
+  }
+
+  .artist-max {
+    max-width: 200px;
+  }
+
+  .navigate--container {
+    height: 100vh;
+  }
+
+  .recommended-tracks.navigate-back {
+    top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .ms-lg-5 {
+    margin: 0 0 70px 0 !important;
+  }
+
+  .nav {
+    height: 70px;
+  }
+
+    .artist-max {
+    max-width: 150px;
+  }
+} 
+
+/* @media (max-width: 670px) {
+  .row {
+    max-width: 500px !important;
+  }
+} */
