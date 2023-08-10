@@ -5,23 +5,23 @@ const bodyParser = require('body-parser')
 const SpotifyWebApi = require('spotify-web-api-node')
 const path = require('path')
 
-const PORT = 3001
-
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, 'build')))
 
+const PORT = process.env.PORT || 3001
+
 const CLIENT_ID = process.env.CLIENT_ID;
 const REDIRECT_URI = process.env.REDIRECT_URI;
-const AUTH_ENDPOINT = process.env.AUTH_ENDPOINT;
-const RESPONSE_TYPE = process.env.RESPONSE_TYPE;
 const CLIENT_SECRET = process.env.CLIENT_SECRET
-const SCOPE_PARAM = process.env.SCOPE_PARAM
 
-console.log(REDIRECT_URI)
+const RESPONSE_TYPE = 'code'
+const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
+const SCOPE_PARAM = ["user-read-recently-played","user-top-read","playlist-read-private","playlist-read-collaborative","user-read-private","user-follow-read"]
 
+app.use(express.static(path.join(__dirname, '../', 'client', 'build')))
 
 const spotifyApi = new SpotifyWebApi({
     redirectUri: REDIRECT_URI,
@@ -30,8 +30,12 @@ const spotifyApi = new SpotifyWebApi({
 })
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 
-    'index.html'))
+    res.sendFile(path.resolve(__dirname, '../', 'client', 'build', 'index.html'),
+    function(err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
 })
 
 app.post('/api/login', (req, res) => {
