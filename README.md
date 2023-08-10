@@ -34,3 +34,6 @@ This web application allows users to see their top artists and songs over time, 
 ## Future Plans
   - Add an artist's top songs on their page
   - Add recommendations for similar artists
+
+## Known Bugs
+  - Cannot retrieve top stats for inactive accounts. Planning to fix soon.
